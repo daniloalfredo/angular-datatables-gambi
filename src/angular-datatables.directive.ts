@@ -62,6 +62,7 @@ export class DataTableDirective implements OnDestroy, OnInit {
       Promise.resolve(this.dtOptions).then(dtOptions => {
         // Using setTimeout as a "hack" to be "part" of NgZone
         setTimeout(() => {
+          $.fn.dataTable.moment('MMM DD, YYYY HH:mm')
           this.dt = $(this.el.nativeElement).DataTable(dtOptions);
           resolve(this.dt);
         });
